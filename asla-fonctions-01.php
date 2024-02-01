@@ -76,6 +76,7 @@ FIN_HTML;
 
 	// Exercice 7
 	function genererTableHTML( $produit , $nomFichier = "" ){
+		return $produit;
 		
 		// Votre code ici
 		
@@ -90,9 +91,10 @@ FIN_HTML;
 		// Exercice 1
 		echo "\n1) -------------------------------------\n" ;
 		
+		#$codeProduit1 = getCode( $produitTest1 ) ;
 		$codeProduit2 = getCode( $produitTest2 ) ;
+		#echo "Code du produit 1 : $codeProduit1\n" ;
 		echo "Code du produit 2 : $codeProduit2\n" ;
-		
 		// Votre code ici (code de test avec le second produit)
 		
 		
@@ -160,18 +162,20 @@ FIN_HTML;
 		
 		// Exercice 6
 		echo "\n6.a) -------------------------------------\n" ;
-		#$codeHTML = genererListeHTML( $produitTest1 ) ;
-		#echo "Code HTML généré :\n$codeHTML\n" ;
+		$codeHTML = genererListeHTML( $produitTest1 ) ;
+		echo "Code HTML généré :\n$codeHTML\n" ;
 		
 		echo "\n6.b) -------------------------------------\n" ;
-		#$codeHTML = genererListeHTML( $produitTest2 , "vueProduitListe" ) ;
-		#echo "Code HTML généré :\n$codeHTML\n" ;
+		$codeHTML = genererListeHTML( $produitTest2 , "vueProduitListe" ) ;
+		echo "Code HTML généré :\n$codeHTML\n" ;
 		
 		// Exercice 7
 		echo "\n7.a) -------------------------------------\n" ;
+		
 		// Votre code ici
 		
 		echo "\n7.b) -------------------------------------\n" ;
+	
 		// Votre code ici
 	}
 	
