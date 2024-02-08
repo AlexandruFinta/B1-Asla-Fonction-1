@@ -76,8 +76,44 @@ FIN_HTML;
 
 	// Exercice 7
 	function genererTableHTML( $produit , $nomFichier = "" ){
-		return $produit;
+		list( $code , $nom , $prixUnit , $promo ) = explode( ":" , $produit ) ;
 		
+		$html = <<<FIN_HTML
+		
+		<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<title>Asla</title>
+</head>
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Nom</th>
+      <th>Prix Uniter</th>
+  	  <th>Promo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>$code
+      <td>$nom
+      <td>$prixUnit
+  	  <td>$promo %
+    </tr>
+  </tbody>
+</table>
+FIN_HTML;
+
+		if( $nomFichier != "" ){
+			$dest = fopen( "$nomFichier.html" , "w" ) ;# Ouverture du fichier en mode écriture
+			fwrite( $dest , $html ) ;					# Écriture de la chaîne dans le fichier
+			fclose( $dest ) ;							# Fermeture du fichier
+		}
+			
+		return $html ;
 		// Votre code ici
 		
 	}
@@ -162,20 +198,22 @@ FIN_HTML;
 		
 		// Exercice 6
 		echo "\n6.a) -------------------------------------\n" ;
-		$codeHTML = genererListeHTML( $produitTest1 ) ;
+		$codeHTML = genererListeHTML( $produitTest1, "vueProduitListe1" ) ;
 		echo "Code HTML généré :\n$codeHTML\n" ;
 		
 		echo "\n6.b) -------------------------------------\n" ;
-		$codeHTML = genererListeHTML( $produitTest2 , "vueProduitListe" ) ;
+		$codeHTML = genererListeHTML( $produitTest2 , "vueProduitListe2" ) ;
 		echo "Code HTML généré :\n$codeHTML\n" ;
 		
 		// Exercice 7
 		echo "\n7.a) -------------------------------------\n" ;
-		
+		$codeHTML1 = genererTableHTML( $produitTest1 , "vueProduittable1" ) ;
+		echo "Code HTML généré :\n$codeHTML1\n" ;
 		// Votre code ici
 		
 		echo "\n7.b) -------------------------------------\n" ;
-	
+		$codeHTML1 = genererTableHTML( $produitTest2 , "vueProduittable2" ) ;
+		echo "Code HTML généré :\n$codeHTML1\n" ;
 		// Votre code ici
 	}
 	
